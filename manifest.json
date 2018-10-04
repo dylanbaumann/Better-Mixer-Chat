@@ -1,0 +1,58 @@
+{
+    "manifest_version": 2,
+    "name": "Mixer Booster",
+    "version": "0.1",
+    "description": "Supercharges your Mixer mod capabilities by adding helpful buttons to accomplish complex tasks quickly and simply.",
+    "content_scripts": [
+        {
+            "css": [
+                "style.css",
+                "fonts.css"
+            ],
+            "js": [
+                // make a call to js files without `../` so for example, make a call to a file such as:
+                // "myNewfeature.js",
+                // "anotherFeature.js"
+                "test.js"
+            ],
+            "matches": [
+                "https://*.mixer.com/*",
+            ],
+            "persistent": false
+        }
+    ],
+    "permissions": [
+        "declarativeContent",
+        "storage",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "windows": "Ctrl+Shift+5",
+                "mac": "Command+Shift+5",
+                "chromeos": "Ctrl+Shift+5",
+                "linux": "Ctrl+Shift+5"
+            }
+        }
+    },
+    "icons": {
+        "16": "images/mixer-icon16.png",
+        "32": "images/mixer-icon32.png",
+        "48": "images/mixer-icon48.png",
+        "128": "images/mixer-icon128.png"
+    },
+    "browser_action": {
+        "default_icon": "images/mixer-icon128.png",
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+        "fonts/*",
+        "images/*"
+    ]
+}
