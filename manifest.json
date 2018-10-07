@@ -1,36 +1,37 @@
 {
+    // General Information
     "manifest_version": 2,
     "name": "Mixer Booster",
     "version": "0.1",
     "description": "Supercharges your Mixer mod capabilities by adding helpful buttons to accomplish complex tasks quickly and simply.",
+    // This is what gets loaded onto the page being visited
     "content_scripts": [
         {
             "css": [
-                "style.css",
-                "fonts.css"
+                "styles/style.css",
+                "styles/fonts.css"
             ],
             "js": [
-                // make a call to js files without `../` so for example, make a call to a file such as:
-                // "myNewfeature.js",
-                // "anotherFeature.js"
-                "test.js"
+                "scripts/chat-change-listener.js"
             ],
             "matches": [
-                "https://*.mixer.com/*",
+                "*://*.mixer.com/*"
             ],
+            "run_at": "document_idle",
             "persistent": false
         }
     ],
+    // Only run on the current tab for performance reasons
     "permissions": [
-        "declarativeContent",
-        "storage",
-        "tabs"
+        "activeTab"
     ],
+    // Code that runs at the extension-level (nothing)
     "background": {
         "scripts": [
-            "background.js"
+            "scripts/background.js"
         ]
     },
+    // Keyboard Shortcuts (don't do anything yet, but why not!)
     "commands": {
         "_execute_browser_action": {
             "suggested_key": {
@@ -41,16 +42,19 @@
             }
         }
     },
+    // Because icons matter
     "icons": {
         "16": "images/mixer-icon16.png",
         "32": "images/mixer-icon32.png",
         "48": "images/mixer-icon48.png",
         "128": "images/mixer-icon128.png"
     },
+    // If you click the icon on the extension list, run this page and use this icon
     "browser_action": {
         "default_icon": "images/mixer-icon128.png",
-        "default_popup": "popup.html"
+        "default_popup": "html/popup.html"
     },
+    // If we ever want to use custom fonts
     "web_accessible_resources": [
         "fonts/*",
         "images/*"
