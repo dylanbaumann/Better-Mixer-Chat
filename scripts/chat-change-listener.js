@@ -14,18 +14,16 @@
 // Whenever chat updates, scroll the chat box down to display the new message
 // since that can occasionaly get bugged and clip messages or only show half-messages
 const scrollChatDown = () => {
-	let chatContainer = document.querySelector('.message-container');
-
-	chatContainer.scrollTop = chatContainer.scrollHeight;
-
-	console.log('chat has been scrolled down automatically')
+	// let chatContainer = document.querySelector('.message-container');
+	// chatContainer.scrollTop = chatContainer.scrollHeight;
+	//console.log('chat has been scrolled down automatically')
 }
 
 // Creates a callback function to execute whenever a DOM Mutation is observed
 const chatChangeCallback = function(chatChangeList, chatObserver) {
 
 	// Fire off the ScrollChatDown function
-	scrollChatDown();
+	// scrollChatDown();
 
 	/*  ---------------------------------------------
 		The following section is for console logging
